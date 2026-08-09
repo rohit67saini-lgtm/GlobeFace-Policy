@@ -1,105 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Globeface - Connect the World</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background-color: #0d0e12;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-        .container {
-            text-align: center;
-            padding: 40px;
-            max-width: 500px;
-            width: 100%;
-        }
-        .logo-box {
-            font-size: 4rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, #00ffff, #8a2be2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-        p {
-            color: #a0a5b5;
-            font-size: 1.1rem;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-        .btn {
-            display: inline-block;
-            width: 100%;
-            padding: 16px;
-            margin-bottom: 15px;
-            border-radius: 14px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #8a2be2, #4a00e0);
-            color: #ffffff;
-            box-shadow: 0 8px 24px rgba(138, 43, 226, 0.3);
-        }
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(138, 43, 226, 0.5);
-        }
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
-            color: #00ffff;
-            border: 1px solid rgba(0, 255, 255, 0.2);
-        }
-        .btn-secondary:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: translateY(-2px);
-        }
-        .footer {
-            margin-top: 40px;
-            font-size: 0.85rem;
-            color: #515665;
-        }
-    </style>
+    <title>Globeface Reel</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const reelId = urlParams.get('reelId');
+
+            // 1. अगर रील आईडी है, तो ऐप की कस्टम स्कीम चलाने की कोशिश करो
+            if (reelId) {
+                window.location.href = "globeface://reel?reelId=" + reelId;
+            }
+
+            // 2. एंड्रॉइड के लिए एक स्पेशल 'Intent Link' जो ब्राउज़र को बंद करके सीधा असली Google Play Store ऐप खोलता है
+            setTimeout(function() {
+                window.location.href = "intent://details?id=com.ags.globeface#Intent;scheme=market;package=com.android.vending;end";
+            }, 1200);
+        };
+    </script>
 </head>
-<body>
-
-    <div class="container">
-        <!-- 🌐 आपके ऐप का नाम (Neon Gen-Z वाइब के साथ) -->
-        <div class="logo-box">Globeface</div>
-        <p>Explore amazing posts, custom themes, and short reels inside our next-gen social community app.</p>
-
-        <!-- 🤖 गूगल प्ले स्टोर का सीधा बटन -->
-        <a href="https://play.google.com/store/apps/details?id=com.ags.globeface" class="btn btn-primary">
-            Download App from Play Store
-        </a>
-
-        <!-- 🛡️ प्राइवेसी पॉलिसी का बटन (AdMob और Play Store अप्रूवल के लिए ज़रूरी) -->
-        <a href="https://github.io" class="btn btn-secondary">
-            Privacy Policy
-        </a>
-
-        <div class="footer">
-            &copy; 2026 Globeface App. All rights reserved.
-        </div>
-    </div>
-
+<body style="background-color: #121212; color: #ffffff; text-align: center; font-family: Arial, sans-serif; padding-top: 100px;">
+    <h2>Globeface App Open Ho Raha Hai...</h2>
+    <p>We are opening the app or redirecting you directly to the Play Store app.</p>
 </body>
 </html>
