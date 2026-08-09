@@ -1,0 +1,14 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.ags.globeface",
+      "sha256_cert_fingerprints": [
+        "8B:17:59:E8:0E:E2:22:CE:69:70:D1:07:68:25:64:89:20:B9:DA:EC:EC:55:25:87:8A:BA:F9:A8:8B:75:D9:1F"
+      ]
+    }
+  }
+]
