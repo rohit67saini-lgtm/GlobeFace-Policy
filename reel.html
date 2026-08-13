@@ -1,26 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Globeface Reel</title>
-    <script type="text/javascript">
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const reelId = urlParams.get('reelId');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            // 1. अगर रील आईडी है, तो ऐप की कस्टम स्कीम चलाने की कोशिश करो
-            if (reelId) {
-                window.location.href = "globeface://reel?reelId=" + reelId;
+    <title>Globeface Reel</title>
+
+    <script>
+        window.onload = function () {
+
+            const params = new URLSearchParams(window.location.search);
+            const reelId = params.get("reelId");
+
+            if (!reelId) {
+                document.getElementById("status").innerText =
+                    "Reel ID नहीं मिली।";
+                return;
             }
 
-            // 2. एंड्रॉइड के लिए एक स्पेशल 'Intent Link' जो ब्राउज़र को बंद करके सीधा असली Google Play Store ऐप खोलता है
-            setTimeout(function() {
-                window.location.href = "intent://details?id=com.ags.globeface#Intent;scheme=market;package=com.android.vending;end";
-            }, 1200);
+            const appUrl =
+                "globeface://reel?reelId=" +
+                encodeURIComponent(reelId);
+
+            document.getElementById("status").innerText =
+                "Opening Globeface...";
+
+            window.location.href = appUrl;
+
+            setTimeout(function () {
+                document.getElementById("fallback").style.display = "block";
+            }, 1800);
         };
     </script>
 </head>
-<body style="background-color: #121212; color: #ffffff; text-align: center; font-family: Arial, sans-serif; padding-top: 100px;">
-    <h2>Globeface App Open Ho Raha Hai...</h2>
-    <p>We are opening the app or redirecting you directly to the Play Store app.</p>
+
+<body style="
+    background:#121212;
+    color:white;
+    text-align:center;
+    font-family:Arial,sans-serif;
+    padding-top:100px;
+">
+
+    <h2>Globeface</h2>
+
+    <p id="status">
+        Opening reel...
+    </p>
+
+    <div id="fallback" style="display:none;">
+        <p>App automatically open नहीं हुई?</p>
+
+        <a
+            href="https://play.google.com/store/apps/details?id=com.ags.globeface"
+            style="
+                display:inline-block;
+                padding:14px 22px;
+                border:1px solid #fff;
+                border-radius:12px;
+                color:white;
+                text-decoration:none;
+            "
+        >
+            Open Globeface
+        </a>
+    </div>
+
 </body>
 </html>
